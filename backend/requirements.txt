@@ -5,3 +5,5 @@ matplotlib
 seaborn
 flask
 flask-cors
+os_sys
+openai

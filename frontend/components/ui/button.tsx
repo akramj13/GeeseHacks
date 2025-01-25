@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 interface ButtonProps {
@@ -10,15 +11,8 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({ children, className = "", onClick = () => {}, disabled = false }) => {
   return (
     <button
-      className={clsx(
-        "px-4 py-2 rounded-lg text-white font-semibold focus:outline-none transition",
-        {
-          "bg-gray-300 cursor-not-allowed": disabled,
-          "bg-blue-600 hover:bg-blue-700": !disabled,
-        },
-        className
-      )}
-      onClick={onClick}
+      className="px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600"
+      onClick={() => console.log("Button clicked")}
       disabled={disabled}
     >
       {children}
