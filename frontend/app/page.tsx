@@ -1,6 +1,7 @@
 import NavBar from "@/components/NavBar";
 import SimulatedPage from "@/components/SimulatedPage";
 import Image from "next/image";
+import OnBoarding from "@/components/OnBoarding";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       {/* Header */}
       <NavBar />
       <SimulatedPage />
+      {/* <OnBoarding/> */}
     </div>
   );
 }

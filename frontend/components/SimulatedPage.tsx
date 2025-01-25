@@ -14,7 +14,7 @@ const SimulatedPage: React.FC = () => {
             Find an advisor
           </button>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 p-5">
           <img
             src="/woman-on-phone.jpg"
             alt="Woman on phone"
@@ -25,7 +25,7 @@ const SimulatedPage: React.FC = () => {
 
       {/* Secondary Section */}
       <section className="flex flex-col md:flex-row items-center py-8 px-4">
-        <div className="flex-1">
+        <div className="flex-1 p-5">
           <img
             src="/man-on-phone.jpg"
             alt="Man on phone"
