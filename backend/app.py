@@ -2,10 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import numpy as np
 import pandas as pd
-from pandas_datareader import data, wb
 import matplotlib.pyplot as plt
-import seaborn as sns
-import requests
 import datetime as dt
 from stock_handler import get_stock_data 
 # import func from om_gpt

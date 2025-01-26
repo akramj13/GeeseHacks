@@ -17,8 +17,8 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
   const [chartData, setChartData] = useState(null);
   const router = useRouter();
 
-  const getStockData = async () => {
-    console.log("here is info:", ticker, startDate, endDate);
+  const fetchStockData = async (tickerValue: string, start: string, end: string) => {
+    console.log("here is info:", tickerValue, start, end);
     
     const stockParameters = {
       method: "GET",
@@ -27,19 +27,25 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
       }
     }
 
-    const url = `http://127.0.0.1:5000/api/stock?ticker=${ticker || "SLF.TO"}&start=${startDate || "2020-01-01"}&end=${endDate || "2024-12-31"}`;
+    const url = `http://127.0.0.1:5000/api/stock?ticker=${tickerValue}&start=${start}&end=${end}`;
     await fetch(url, stockParameters)
-    .then(result => result.json())
-    .then(data => {
-      console.log(data);
-      console.log(JSON.parse(data.chart));
-      setChartData(JSON.parse(data.chart));
-      setPctChangeStd(data.pct_change_std);
-    });
+      .then(result => result.json())
+      .then(data => {
+        console.log(data);
+        console.log(JSON.parse(data.chart));
+        setChartData(JSON.parse(data.chart));
+        setPctChangeStd(data.pct_change_std);
+      })
+      .catch((err) => console.error("Error fetching stock data:", err));
+  }
+
+  const getStockData = (e: React.FormEvent) => {
+    e.preventDefault();
+    fetchStockData(ticker, startDate, endDate);
   }
 
   useEffect(() => {
-    getStockData();
+    fetchStockData("SLF.TO", "2020-01-01", "2024-12-31");
   }, []); // useEffect re-renders everytime you click a button with new ticker and dates, maybe not
 
   return (
@@ -60,7 +66,7 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
 
       <div className="flex-1 p-5">
         <div className="rounded-lg shadow-md bg-white p-6">
-          <form onSubmit={getStockData} className="space-y-4">
+          <form onSubmit={e => getStockData(e)} className="space-y-4">
             <div>
               <label htmlFor="ticker" className="block text-sm font-medium text-gray-700">
                 Ticker Symbol
