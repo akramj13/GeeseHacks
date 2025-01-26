@@ -1,9 +1,15 @@
-from openai import OpenAI
 import os
-n 
+from openai import OpenAI
+from io import BytesIO
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Get API key
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 def main(user_input):
+
     client = OpenAI(api_key=OPENAI_API_KEY)
     response = client.chat.completions.create(
     model="gpt-4",  # or another model
@@ -23,9 +29,9 @@ def main(user_input):
         - Intermediate: Some investment experience, understands basic market concepts
         - Advanced: Extensive investment knowledge, complex market understanding
         
-        Respond ONLY with: 'beginner', 'intermediate', or 'advanced'
+        Respond ONLY with: beginner, intermediate, or advanced
         """},
-        {"role": "user", "content": {"role": "user", "content": "I do not know anything about investing"}}
+        {"role": "user", "content": user_input}
     ],
     max_tokens=10  
     )
@@ -33,11 +39,7 @@ def main(user_input):
     # Extract and return the classification
     classification = response.choices[0].message.content.lower().strip()
     
-    if classification not in ['beginner', 'intermediate', 'advanced']:
-        return 'beginner'  
+    return classification if classification in ['beginner', 'intermediate', 'advanced'] else 'beginner'
 
-    return classification
-
-
-result = main('blah')
+result = main('I know everything about investing')
 print(result)
