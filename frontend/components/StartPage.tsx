@@ -23,7 +23,7 @@ const StartPage = () => {
           <p className="text-gray-700 mb-6">
             Learn more about Exchange-Traded Funds (ETFs) and how they can help you achieve your financial goals.
           </p>
-          <a href="/study-modules">
+          <a href="/form">
           <Button
             className="px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600"
             onClick={() => alert('Start button clicked!')}
