@@ -1,5 +1,5 @@
 <h1 align="center">
-LearnETF
+LearnETF 📈
 </h1>
 
 LearnETF is an award-winning hackathon project created for the **Sun Life Case** Competition, during Geesehacks designed to empower Gen Z and newer generations with **financial literacy**. This innovative platform provides **interactive modules** to educate users about **ETFs, stocks, mutual bonds, and other investment tools**. By blending advanced technology and engaging content
@@ -10,15 +10,20 @@ Our project won 2nd place for Sun Life's Sponsor Prize.
 <hr>
 
 <img src="demo.png" alt="rbveal">
+&nbsp;
 
-## Key Features
+<h1 align="center">Key Features</h1>
 - Interactive Learning Modules: Users can explore topics like ETFs, stocks, and bonds through gamified modules designed to enhance engagement and retention.
 - Real-Time Market Insights: Using Yahoo Finance (yfinance), NumPy, pandas, the app provides up-to-date stock data, market trends, and insights.
 - AI-Powered Guidance: Integration with the OpenAI API enables personalized content for users to clarify financial concepts and investment strategies.
 - Data Visualization: Interactive charts and graphs, powered by Plotly, Cufflinks, and Matplotlib help users understand financial trends and concepts visually.
 - Beginner-Friendly Approach: The platform prioritizes accessibility, breaking down complex jargon into easily digestible lessons tailored for Gen Z.
 
-## Tech Stack
+&nbsp;
+<h1 align="center">
+Tech Stack ⚙️
+</h1>
+
 - **Frontend:**
     - Next.js for server-side rendering and optimized web performance.
     - React for building dynamic user interfaces.
@@ -45,10 +50,13 @@ The team’s commitment to innovation and the use of a forward-thinking tech sta
 <hr>
 
 ### Contributors
-- Akram Jamil
-- Sahil Alamgir
-- Om Nathwani
-- Aaryan Nanda
+
+```
+- Akram Jamil: akram.jamil@uwaterloo.ca
+- Sahil Alamgir: sahil.alamgir@uwaterloo.ca
+- Om Nathwani: 
+- Aaryan Nanda: ak2nanda@uwaterloo.ca
+```
 
 <hr>
 
