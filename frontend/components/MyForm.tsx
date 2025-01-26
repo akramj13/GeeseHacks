@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { useLevel } from "@/context/LevelContext";
 import Button from "@/components/ui/Button";
@@ -25,7 +26,7 @@ const MyForm = () => {
 
     const data = await response.json();
     const experienceLevel = data.level;
-    console.log(experienceLevel);
+    console.log("within myform:", experienceLevel);
 
     setLevel(experienceLevel); // Save the level to the context
     router.push("/study-modules"); // Redirect to the next page
