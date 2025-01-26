@@ -18,7 +18,8 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [pctChangeStd, setPctChangeStd] = useState(0);
-  const [chartData, setChartData] = useState(null);
+  const [candleData, setCandleData] = useState(null);
+  const [histData, setHistData] = useState(null);
   const router = useRouter();
 
   const fetchStockData = async (tickerValue: string, start: string, end: string) => {
@@ -29,7 +30,8 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
     })
       .then((result) => result.json())
       .then((data) => {
-        setChartData(JSON.parse(data.chart));
+        setCandleData(JSON.parse(data.candle_chart));
+        setHistData(JSON.parse(data.hist_chart));
         setPctChangeStd(data.pct_change_std);
       })
       .catch((err) => console.error("Error fetching stock data:", err));
@@ -110,9 +112,23 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
           </form>
         </div>
 
-        <div className="rounded-lg shadow-md bg-white p-6 flex items-center justify-center">
-          {chartData ? (
-            <Plot data={chartData.data} layout={chartData.layout} />
+        <div className="rounded-lg shadow-md bg-white p-6 flex flex-col items-center justify-center">
+          <h2 style={{fontSize: "24px"}}>SPY</h2>
+          {(pctChangeStd >= 0.015) ? (
+            <p style={{color: "rgb(231, 49, 76)", fontSize: "18px"}}>Risky</p>
+          ) : (
+            <p style={{color: "rgb(50, 160, 30)", fontSize: "18px"}}>Safe</p>
+          )}
+          {candleData ? (
+            <Plot data={candleData.data} layout={candleData.layout} />
+          ) : (
+            <p className="text-gray-700 font-medium">Loading chart...</p>
+          )}
+          {histData ? (
+            <div className="flex flex-col items-center">
+              <p>Distribution of Percent Change</p>
+              <Plot data={histData.data} layout={histData.layout} />
+            </div>
           ) : (
             <p className="text-gray-700 font-medium">Loading chart...</p>
           )}

@@ -34,7 +34,6 @@ def get_stock_data(ticker="SLF.TO", start="2019-01-01", end="2024-12-31"):
 
     # Update layout
     fig.update_layout(
-        title=ticker,
         xaxis_title='Date',
         yaxis_title='Price',
         xaxis_rangeslider_visible=False
@@ -42,9 +41,19 @@ def get_stock_data(ticker="SLF.TO", start="2019-01-01", end="2024-12-31"):
 
     # fig.show()
 
+    fig2 = go.Figure(data=[go.Histogram(x=pct_change)])
+
+    fig2.update_layout(
+        xaxis_title='Close',
+        yaxis_title='Count',
+        xaxis_rangeslider_visible=False
+    )
+    # fig2.show()
+
     response = {
         "pct_change_std": pct_change_std,
-        "chart": fig.to_json()
+        "candle_chart": fig.to_json(),
+        "hist_chart": fig2.to_json()
     }
 
     return response
