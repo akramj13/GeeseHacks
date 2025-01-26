@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { LevelProvider } from "@/context/LevelContext";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,7 +28,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         
-        <LevelProvider>{children}</LevelProvider>
+        {children}
         {/* <script type="text/javascript">
   (function(d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];

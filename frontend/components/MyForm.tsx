@@ -1,7 +1,33 @@
-import React from 'react'
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import Button from "@/components/ui/Button";
 
 const MyForm = () => {
+  const [thoughts, setThoughts] = useState("");
+  const [stocks, setStocks] = useState("");
+  const [amount, setAmount] = useState("");
+  const [level, setLevel] = useState("");
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const response = await fetch("http://127.0.0.1:5000/api/gpt", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ "response": thoughts }),
+    });
+
+    const data = await response.json();
+    console.log("API response:", data);
+
+    const experienceLevel = data.level;
+    setLevel(experienceLevel);
+    router.push("/study-modules/module-1"); // Redirect to the first module
+  };
+
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100 relative">
           {/* Form Section */}
@@ -32,12 +58,12 @@ const MyForm = () => {
           
           {/* Start Studying Button */}
           <a href="/study-modules">
-            <Button
+            <button
               className="px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600"
-              onClick={() => alert('Start button clicked!')}
+              onClick={(e) => handleSubmit(e)}
             >
               Start Studying
-            </Button>
+            </button>
           </a>
         </div>
   )
