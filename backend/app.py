@@ -24,7 +24,7 @@ def get_stock():
     return jsonify(stock_data)
 
 
-@app.route("/api/gpt")
+@app.route("/api/gpt", methods=["POST"])
 def get_level():
     data = request.get_json()
     response = data.get("response")
