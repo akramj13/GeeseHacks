@@ -24,8 +24,8 @@ def main(user_input):
     
     # Extract and return the ticker symbols
     company_tickers = response.choices[0].message.content.lower().strip()
-    
-    return company_tickers 
+    company_tickers_array = company_tickers.split(',')
+    return company_tickers_array
 
 # result = main('Apple, Amazon, Google')
 # print(result)
