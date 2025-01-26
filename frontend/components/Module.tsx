@@ -22,40 +22,32 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
   const router = useRouter();
 
   const fetchStockData = async (tickerValue: string, start: string, end: string) => {
-    console.log("here is info:", tickerValue, start, end);
-    
-    const stockParameters = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }
-
     const url = `http://127.0.0.1:5000/api/stock?ticker=${tickerValue}&start=${start}&end=${end}`;
-    await fetch(url, stockParameters)
-      .then(result => result.json())
-      .then(data => {
-        console.log(data);
-        console.log(JSON.parse(data.chart));
+    await fetch(url, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((result) => result.json())
+      .then((data) => {
         setChartData(JSON.parse(data.chart));
         setPctChangeStd(data.pct_change_std);
       })
       .catch((err) => console.error("Error fetching stock data:", err));
-  }
+  };
 
   const getStockData = (e: React.FormEvent) => {
     e.preventDefault();
     fetchStockData(ticker || defaultTicker, startDate || defaultStart, endDate || defaultEnd);
-  }
+  };
 
   useEffect(() => {
     fetchStockData(defaultTicker, defaultStart, defaultEnd);
-  }, []); // useEffect re-renders everytime you click a button with new ticker and dates, maybe not
+  }, []);
 
   return (
-    <section className="flex flex-col md:flex-row items-center bg-gray-100 py-8 px-4">
+    <section className="flex flex-col md:flex-row bg-gray-100 py-8 px-4">
       {/* Module Text */}
-      <div className="flex-1 text-center md:text-left rounded-lg shadow-md bg-white p-6">
+      <div className="w-full md:w-1/3 text-center md:text-left rounded-lg shadow-md bg-white p-6">
         <h1 className="text-2xl font-bold mb-2">{title}</h1>
         <p className="text-gray-600 mb-4">{description}</p>
         {nextModuleSlug && (
@@ -68,9 +60,10 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
         )}
       </div>
 
-      <div className="flex-1 p-5">
+      {/* Right Side: Form and Chart */}
+      <div className="w-full md:w-2/3 flex flex-col space-y-5 px-2">
         <div className="rounded-lg shadow-md bg-white p-6">
-          <form onSubmit={e => getStockData(e)} className="space-y-4">
+          <form onSubmit={getStockData} className="space-y-4">
             <div>
               <label htmlFor="ticker" className="block text-sm font-medium text-gray-700">
                 Ticker Symbol
@@ -116,21 +109,13 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
             </button>
           </form>
         </div>
-      </div>
 
-      {/* Interactive Module */}
-      <div className="flex-1 p-5">
         <div className="rounded-lg shadow-md bg-white p-6 flex items-center justify-center">
-          {/* <p className="text-gray-700 font-medium">Interactive Module Section</p> */}
           {chartData ? (
-            <Plot 
-              data={chartData.data}
-              layout={chartData.layout}
-            />
+            <Plot data={chartData.data} layout={chartData.layout} />
           ) : (
             <p className="text-gray-700 font-medium">Loading chart...</p>
           )}
-          
         </div>
       </div>
     </section>
