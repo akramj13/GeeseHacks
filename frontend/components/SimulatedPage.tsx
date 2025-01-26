@@ -4,7 +4,7 @@ const SimulatedPage: React.FC = () => {
   return (
     <>
     {/* Hero Section */}
-    <section className="flex flex-col md:flex-row items-center bg-gray-100 py-8 px-4">
+    <section className="flex flex-col md:flex-row items-center bg-gray-100 py-8 px-10">
         <div className="flex-1 text-center md:text-left">
           <h1 className="text-2xl font-bold mb-2">It matters who you trust. Partner right.</h1>
           <p className="text-gray-600 mb-4">
