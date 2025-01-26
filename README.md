@@ -5,7 +5,7 @@ LearnETF 📈
 LearnETF is an award-winning hackathon project created for the **Sun Life Case** Competition, during Geesehacks designed to empower Gen Z and newer generations with **financial literacy**. This innovative platform provides **interactive modules** to educate users about **ETFs, stocks, mutual bonds, and other investment tools**. By blending advanced technology and engaging content
 LearnETF simplifies complex financial concepts, making investing accessible and understandable for younger audiences.
 
-Our project won 2nd place for Sun Life's Sponsor Prize. 
+Our project won 2nd place overall for Sun Life's Sponsor Prize.
 
 <hr>
 
@@ -13,11 +13,13 @@ Our project won 2nd place for Sun Life's Sponsor Prize.
 &nbsp;
 
 <h1 align="center">Key Features</h1>
-- Interactive Learning Modules: Users can explore topics like ETFs, stocks, and bonds through gamified modules designed to enhance engagement and retention.
-- Real-Time Market Insights: Using Yahoo Finance (yfinance), NumPy, pandas, the app provides up-to-date stock data, market trends, and insights.
-- AI-Powered Guidance: Integration with the OpenAI API enables personalized content for users to clarify financial concepts and investment strategies.
-- Data Visualization: Interactive charts and graphs, powered by Plotly, Cufflinks, and Matplotlib help users understand financial trends and concepts visually.
-- Beginner-Friendly Approach: The platform prioritizes accessibility, breaking down complex jargon into easily digestible lessons tailored for Gen Z.
+<ul>
+    <li>Interactive Learning Modules: Users can explore topics like ETFs, stocks, and bonds through gamified modules designed to enhance engagement and retention.</li>
+    <li>Real-Time Market Insights: Using Yahoo Finance (yfinance), NumPy, and pandas, the app provides up-to-date stock data, market trends, and insights.</li>
+    <li>AI-Powered Guidance: Integration with the OpenAI API enables personalized content for users to clarify financial concepts and investment strategies.</li>
+    <li>Data Visualization: Interactive charts and graphs, powered by Plotly, Cufflinks, and Matplotlib, help users understand financial trends and concepts visually.</li>
+    <li>Beginner-Friendly Approach: The platform prioritizes accessibility, breaking down complex jargon into easily digestible lessons tailored for Gen Z.</li>
+</ul>
 
 &nbsp;
 <h1 align="center">
@@ -31,12 +33,12 @@ Tech Stack ⚙️
 - **Backend:**
     - Python + Flask for a lightweight, scalable backend.
     - OpenAI API for AI-powered personalization based on personal context.
-    - Plotly for intuitive data visualization.
+    - Plotly for interactive data visualization.
     - yfinance for fetching stock market data and insights.
 
 ## Why LearnETF?
 
-With the rise of retail investing and the importance of financial independence, younger generations need tools to understand investment options and make informed decisions
+With the rise of retail investing and the importance of financial independence, younger generations need tools to understand investment options and make informed decisions.
 LearnETF bridges the knowledge gap by combining cutting-edge technology, real-time data, and AI-powered learning to create a robust educational platform.
 
 The project not only aims to educate but also to empower users with the confidence to navigate the financial world effectively.
