@@ -20,7 +20,7 @@ def get_stock():
     end = request.params.get("end")
 
     stock_data = get_stock_data(ticker, start, end)
-    return jsonify({"percent_change": data["percent_change"], "chart": data["chart"]})
+    return jsonify(stock_data)
 
 @app.route("/api/gpt")
 def get_level():
