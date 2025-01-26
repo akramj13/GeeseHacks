@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 interface ModuleProps {
@@ -9,7 +9,47 @@ interface ModuleProps {
 }
 
 const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
+  const [ticker, setTicker] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [pctChangeStd, setPctChangeStd] = useState(0);
+  const [chartData, setChartData] = useState(null);
   const router = useRouter();
+
+  const getStockData = async () => {
+    console.log("here is info:", ticker, startDate, endDate);
+    
+    const stockParameters = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+
+    if (!ticker && !startDate && !endDate) {
+      await fetch("http://127.0.0.1:5000/api/stock?ticker=SLF.TO&start=2020-01-01&end=2024-12-31", stockParameters)
+      .then(result => result.json())
+      .then(data => {
+        console.log(data);
+        console.log(data.chart);
+        setChartData(data.chart);
+        setPctChangeStd(data.pct_change_std);
+      });
+    } else {
+      await fetch(`http://127.0.0.1:5000/api/stock?ticker=${ticker}&start=${startDate}&end=${endDate}`, stockParameters)
+      .then(result => result.json())
+      .then(data => {
+        console.log(data);
+        console.log(data.chart);
+        setChartData(data.chart);
+        setPctChangeStd(data.pct_change_std);
+      });
+    }
+  }
+
+  useEffect(() => {
+    getStockData();
+  }, []); // useEffect re-renders everytime you click a button with new ticker and dates, maybe not
 
   return (
     <section className="flex flex-col md:flex-row items-center bg-gray-100 py-8 px-4">

@@ -15,9 +15,11 @@ CORS(app)
 
 @app.route("/api/stock")
 def get_stock():
-    ticker = request.params.get("ticker")
-    start = request.params.get("start")
-    end = request.params.get("end")
+    ticker = request.args.get("ticker")
+    start = request.args.get("start")
+    end = request.args.get("end")
+    print("within flask", ticker, start, end)
+    # return jsonify({"hi": 231})
 
     stock_data = get_stock_data(ticker, start, end)
     return jsonify(stock_data)
