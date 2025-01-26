@@ -1,7 +1,8 @@
-# GeeseHacks
-GeeseHacks Project
+# Security Educator
+A Winning Sun Life Case GeeseHacks Project
 
-Initialize Backend
+To run the app: 
+1. Intialize backend: 
 ```bash
 cd backend
 python -m venv venv
@@ -9,8 +10,8 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+2. Intiailize frontend: 
 ```bash
 cd frontend && npm install
 cd ..
-cd backend && npm install
 ```
