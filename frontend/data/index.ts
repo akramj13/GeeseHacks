@@ -7,8 +7,8 @@ export const navItems = [
 export const modules = [
     {
       slug: "module-1",
-      level: "Hello",
-      title: "Module 1: A Summary of Stocks",
+      level: "Beginner",
+      title: "Module 1: Summary of Stocks",
       description: "A stock (also called a share) represents partial ownership in a company. When you purchase stock, you become a shareholder, meaning you own a fraction of that company. If the company performs well, its value increases, and the price of your stock might go up. However, if the company struggles or loses value, the price of your stock can decrease. Stocks are usually bought through brokers on stock exchanges like the New York Stock Exchange (NYSE), New Toronto Stock Exchange (TSX) or NASDAQ.",
     },
     {
