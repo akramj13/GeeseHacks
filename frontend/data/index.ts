@@ -5,12 +5,6 @@ export const navItems = [
 ];
 
 export const modules = [
-    // {
-    //   slug: "module-1",
-    //   level: "hello",
-    //   title: "Module 1: Summary of Stocks",
-    //   description: "A stock (also called a share) represents partial ownership in a company. When you purchase stock, you become a shareholder, meaning you own a fraction of that company. If the company performs well, its value increases, and the price of your stock might go up. However, if the company struggles or loses value, the price of your stock can decrease. Stocks are usually bought through brokers on stock exchanges like the New York Stock Exchange (NYSE), New Toronto Stock Exchange (TSX) or NASDAQ.",
-    // },
     {
       slug: "module-1",
       level: "beginner",
@@ -29,6 +23,14 @@ export const modules = [
       title: "Module 2: Summary of Mutual Funds",
       description: "A mutual fund is a pool of money from many investors that is managed by professionals. The fund manager buys and sells investments like stocks or bonds on behalf of all the investors in the fund. When you invest in a mutual fund, you own shares of the fund, and the value of those shares goes up or down based on the performance of the investments inside the fund.",
     },
+
+    {
+      slug: "module-3",
+      level: "hello",
+      title: "Module 3: Summary of Stocks",
+      description: "A stock (also called a share) represents partial ownership in a company. When you purchase stock, you become a shareholder, meaning you own a fraction of that company. If the company performs well, its value increases, and the price of your stock might go up. However, if the company struggles or loses value, the price of your stock can decrease. Stocks are usually bought through brokers on stock exchanges like the New York Stock Exchange (NYSE), New Toronto Stock Exchange (TSX) or NASDAQ.",
+    },
+
     {
       slug: "module-4",
       level: "beginner",
