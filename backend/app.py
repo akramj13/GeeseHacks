@@ -9,6 +9,9 @@ from stock_handler import get_stock_data
 from gpt import get_experience_level
 from ticker_extract import get_ticker_name
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
@@ -26,7 +29,7 @@ def get_stock():
     return jsonify(stock_data)
 
 
-@app.route("/api/gpt")
+@app.route("/api/gpt", methods=["POST"])
 def get_level():
     data = request.get_json()
     response = data.get("response")
@@ -68,21 +71,27 @@ def send_message_to_voiceflow(user_id: str, message: str):
     except Exception as e:
         return {"error": str(e)}
 
+
 @app.route('/chat', methods=['POST'])
 def chat():
     """
     Flask endpoint to receive user messages and send them to VoiceFlow.
     """
-    data = request.json
+    data = request.get_json()
+    print(data)
     user_id = data.get("userId", "default_user")
     message = data.get("message")
+    print(user_id)
+    print(message)
+    print(f"Voiceflow API Key: {VOICEFLOW_API_KEY}")
+    print(f"Voiceflow Project ID: {VOICEFLOW_PROJECT_ID}")
+    print(f"Voiceflow URL: {VOICEFLOW_URL}")
 
     if not message:
         return jsonify({"error": "No message provided"}), 400
 
     chatbot_response = send_message_to_voiceflow(user_id, message)
     return jsonify(chatbot_response)
-
 
 
 if __name__ == "__main__":

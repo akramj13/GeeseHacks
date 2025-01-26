@@ -30,7 +30,7 @@ export default function RootLayout({
       >
         
         <LevelProvider>{children}</LevelProvider>
-        <script type="text/javascript">
+        {/* <script type="text/javascript">
   (function(d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
       v.onload = function() {
@@ -44,7 +44,7 @@ export default function RootLayout({
       v.type = "text/javascript"; 
       s.parentNode.insertBefore(v, s);
   })(document, 'script');
-</script>
+</script> */}
 
       </body>
     </html>
