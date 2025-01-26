@@ -48,6 +48,7 @@ def get_stock_data(ticker="SLF.TO", start="2019-01-01", end="2024-12-31"):
         yaxis_title='Count',
         xaxis_rangeslider_visible=False
     )
+    
     # fig2.show()
 
     response = {

@@ -20,6 +20,7 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
   const [pctChangeStd, setPctChangeStd] = useState(0);
   const [candleData, setCandleData] = useState(null);
   const [histData, setHistData] = useState(null);
+  const [tickerText, setTickerText] = useState(defaultTicker); 
   const router = useRouter();
 
   const fetchStockData = async (tickerValue: string, start: string, end: string) => {
@@ -39,6 +40,7 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
 
   const getStockData = (e: React.FormEvent) => {
     e.preventDefault();
+    setTickerText(ticker);
     fetchStockData(ticker || defaultTicker, startDate || defaultStart, endDate || defaultEnd);
   };
 
@@ -53,12 +55,18 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
         <h1 className="text-2xl font-bold mb-2">{title}</h1>
         <p className="text-gray-600 mb-4">{description}</p>
         {nextModuleSlug && (
-          <button
-            className="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600"
-            onClick={() => router.push(`/study-modules/${nextModuleSlug}`)}
-          >
-            Next
-          </button>
+          <div className="flex flex-col">
+            <div className="border border-solid border-black p-2 mb-5">
+              <h3>If you bought <span className="font-bold">$1000</span> of: <span className="italic">INTC</span> 5 years ago, your portfolio value would have been <span className="font-bold">$304.20</span>.</h3>
+            </div>
+
+            <button
+              className="bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600"
+              onClick={() => router.push(`/study-modules/${nextModuleSlug}`)}
+            >
+              Next
+            </button>
+          </div>
         )}
       </div>
 
@@ -113,7 +121,7 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
         </div>
 
         <div className="rounded-lg shadow-md bg-white p-6 flex flex-col items-center justify-center">
-          <h2 style={{fontSize: "24px"}}>SPY</h2>
+          <h2 style={{fontSize: "24px"}}>{ tickerText }</h2>
           {(pctChangeStd >= 0.015) ? (
             <p style={{color: "rgb(231, 49, 76)", fontSize: "18px"}}>Risky</p>
           ) : (
@@ -126,7 +134,7 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
           )}
           {histData ? (
             <div className="flex flex-col items-center">
-              <p>Distribution of Percent Change</p>
+              <p style={{fontSize: "18px"}}>Distribution of Percent Change</p>
               <Plot data={histData.data} layout={histData.layout} />
             </div>
           ) : (
