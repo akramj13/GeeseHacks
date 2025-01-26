@@ -8,7 +8,7 @@ load_dotenv()
 # Get API key
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
-def main(user_input):
+def get_experience_level(user_input):
 
     client = OpenAI(api_key=OPENAI_API_KEY)
     response = client.chat.completions.create(
@@ -54,5 +54,5 @@ def main(user_input):
     
     return classification if classification in ['beginner', 'intermediate', 'advanced'] else 'beginner'
 
-#result = main('I know everything about investing')
+#result = get_experience_level('I know everything about investing')
 #print(result)

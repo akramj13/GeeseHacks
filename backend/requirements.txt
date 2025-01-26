@@ -7,3 +7,4 @@ flask
 flask-cors
 os_sys
 openai
+python-dotenv

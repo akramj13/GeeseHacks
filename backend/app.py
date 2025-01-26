@@ -5,10 +5,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import datetime as dt
 from stock_handler import get_stock_data 
-# import func from om_gpt
+from gpt import get_experience_level
+from ticker_extract import get_ticker_name
 
 app = Flask(__name__)
 CORS(app)
+
 
 @app.route("/api/stock")
 def get_stock():
@@ -21,11 +23,20 @@ def get_stock():
     stock_data = get_stock_data(ticker, start, end)
     return jsonify(stock_data)
 
+
 @app.route("/api/gpt")
 def get_level():
     data = request.get_json()
     response = data.get("response")
-    level = func(response)
+    level = get_experience_level(response)
+    return jsonify({"level": level})
+
+
+@app.route("/api/ticker")
+def get_ticker():
+    data = request.get_json()
+    response = data.get("response")
+    level = get_ticker_name(response)
     return jsonify({"level": level})
 
 
