@@ -32,9 +32,9 @@ def get_stock_data(ticker="SLF.TO", start="2019-01-01", end="2024-12-31"):
         ]
     )
 
-    # Update layoutd 
+    # Update layout
     fig.update_layout(
-        title='Candlestick Chart',
+        title=ticker,
         xaxis_title='Date',
         yaxis_title='Price',
         xaxis_rangeslider_visible=False
