@@ -63,6 +63,7 @@ const Module = ({ title, description, nextModuleSlug }: ModuleProps) => {
       {/* Right Side: Form and Chart */}
       <div className="w-full md:w-2/3 flex flex-col space-y-5 px-2">
         <div className="rounded-lg shadow-md bg-white p-6">
+          <h2 className="text-xl font-bold mb-4">Try Custom Stock Data</h2>
           <form onSubmit={getStockData} className="space-y-4">
             <div>
               <label htmlFor="ticker" className="block text-sm font-medium text-gray-700">

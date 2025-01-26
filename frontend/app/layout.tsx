@@ -28,8 +28,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        
         <LevelProvider>{children}</LevelProvider>
+<<<<<<< Updated upstream
         {/* <script type="text/javascript">
   (function(d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
@@ -46,6 +46,8 @@ export default function RootLayout({
   })(document, 'script');
 </script> */}
 
+=======
+>>>>>>> Stashed changes
       </body>
     </html>
   );

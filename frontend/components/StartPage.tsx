@@ -19,9 +19,9 @@ const StartPage = () => {
             height={200}
             className="rounded-lg pb-5"
           />
-          <h2 className="text-2xl font-semibold mb-4">Welcome to LearnETF</h2>
+          <h2 className="text-2xl font-semibold mb-4">Welcome to Securities Educator</h2>
           <p className="text-gray-700 mb-6">
-            Learn more about Exchange-Traded Funds (ETFs) and how they can help you achieve your financial goals.
+            Learn more about investment vessels and how they can help you achieve your financial goals.
           </p>
           <a href="/form">
           <Button

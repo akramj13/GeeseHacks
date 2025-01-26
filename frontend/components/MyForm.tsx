@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useLevel } from "@/context/LevelContext";
 import Button from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const MyForm = () => {
   const [thoughts, setThoughts] = useState("");
@@ -66,9 +67,12 @@ const MyForm = () => {
             onChange={(e) => setAmount(e.target.value)}
           />
         </label>
+
+        <Link href="/study-modules">
         <button type="submit" className="px-6 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600">
           Start Studying
         </button>
+        </Link>
       </form>
     </div>
   );
