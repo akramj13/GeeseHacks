@@ -25,7 +25,7 @@ const MyForm = () => {
 
     const experienceLevel = data.level;
     setLevel(experienceLevel);
-    router.push("/study-modules/module-1"); // Redirect to the first module
+    router.push("/study-modules"); // Redirect to the first module
   };
 
   return (
