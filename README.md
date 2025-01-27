@@ -71,7 +71,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-2. Intiailize frontend: 
+2. Intialize frontend: 
 ```bash
 cd frontend && npm install
 cd ..
