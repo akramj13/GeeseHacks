@@ -5,7 +5,7 @@ LearnETF 📈
 LearnETF is an award-winning hackathon project created for the **Sun Life Case** Competition, during Geesehacks designed to empower Gen Z and newer generations with **financial literacy**. This innovative platform provides **interactive modules** to educate users about **ETFs, stocks, mutual bonds, and other investment tools**. By blending advanced technology and engaging content
 LearnETF simplifies complex financial concepts, making investing accessible and understandable for younger audiences.
 
-Our project won 2nd place overall for Sun Life's Sponsor Prize.
+Our project won 2nd place overall for Sun Life's Sponsor Prize. To see the project, go to our [DevPost Link](https://devpost.com/software/securities-educator)!
 
 <hr>
 
