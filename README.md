@@ -56,7 +56,7 @@ The team’s commitment to innovation and the use of a forward-thinking tech sta
 ```
 - Akram Jamil: akram.jamil@uwaterloo.ca
 - Sahil Alamgir: sahil.alamgir@uwaterloo.ca
-- Om Nathwani: 
+- Om Nathwani: ornathwa@uwaterloo.ca
 - Aaryan Nanda: ak2nanda@uwaterloo.ca
 ```
 
